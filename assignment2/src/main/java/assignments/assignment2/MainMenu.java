@@ -171,7 +171,7 @@ public class MainMenu {
                 System.out.println("| Fast    | 2 Hari | 10000 / Kg |");
                 System.out.println("| Reguler | 3 Hari |  7000 / Kg |");
                 System.out.println("+-------------------------------+");
-            } else if (paket.equals("Express") || paket.equals("Reguler") || paket.equals("Fast")) {
+            } else if (paket.equals("express") || paket.equals("reguler") || paket.equals("fast")) {
                 break;
             } else {
                 System.out.println("Paket " + paket + " tidak diketahui");
@@ -214,7 +214,7 @@ public class MainMenu {
         }
 
         // Buat objek Nota baru
-        Nota newNota = new Nota(notaCounter, paket, member, berat, DATE_FORMAT.format(currentDate),
+        Nota newNota = new Nota(1, "", member, berat, DATE_FORMAT.format(currentDate),
                 sisaHariPengerjaan, harga);
 
         // Tambahkan objek Nota ke dalam array list notas

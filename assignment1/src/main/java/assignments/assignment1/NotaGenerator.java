@@ -27,6 +27,14 @@ public class NotaGenerator {
     }
 
 
+
+    /**
+     * Method untuk membuat ID dari nama dan nomor handphone.
+     * Parameter dan return type dari method ini tidak boleh diganti agar tidak mengganggu testing
+     *
+     * @return String ID anggota dengan format [NAMADEPAN]-[nomorHP]-[2digitChecksum]
+     */
+
     public static String generateId(String nama, String nomorHP){
         // TODO: Implement generate ID sesuai soal.
         return null;
