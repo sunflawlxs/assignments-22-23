@@ -1,7 +1,15 @@
 package assignments.assignment2;
-
 import java.text.SimpleDateFormat;
 import java.util.*;
+
+/**
+ * 
+ * Kelas Nota merepresentasikan objek nota yang berisi informasi tentang pesanan
+ * pelanggan.
+ */
+
+
+
 
 
 public class MainMenu {
@@ -35,8 +43,8 @@ public class MainMenu {
 
             // Baca input dari user
             String choice = scanner.nextLine();
-
-
+           
+           
             // Lakukan aksi sesuai pilihan yang dipilih
             switch (choice) {
                 case "1":
@@ -92,10 +100,8 @@ public class MainMenu {
         // Cek apakah member dengan nama dan nomor handphone yang sama sudah ada
         for (Member member : members) {
             String arr[] = nama.split(" ", 2);
-            if (member.getId().startsWith(arr[0].toUpperCase())
-                    && member.toString().contains(noHp)) {
-                System.out.println(
-                        "Member dengan nama " + nama + " dan nomor hp " + noHp + " sudah ada!");
+            if (member.getId().startsWith(arr[0].toUpperCase()) && member.toString().contains(noHp)) {
+                System.out.println("Member dengan nama " + nama + " dan nomor hp " + noHp + " sudah ada!");
                 return;
             }
         }
@@ -171,10 +177,10 @@ public class MainMenu {
                 System.out.println("| Fast    | 2 Hari | 10000 / Kg |");
                 System.out.println("| Reguler | 3 Hari |  7000 / Kg |");
                 System.out.println("+-------------------------------+");
-            } else if (paket.equals("express") || paket.equals("reguler") || paket.equals("fast")) {
+            } else if(paket.equals("express") || paket.equals("reguler") || paket.equals("fast")) {
                 break;
-            } else {
-                System.out.println("Paket " + paket + " tidak diketahui");
+            }else{
+                System.out.println("Paket "+paket+" tidak diketahui");
                 System.out.println("[ketik ? untuk mencari tahu jenis paket]");
             }
         }
@@ -214,8 +220,8 @@ public class MainMenu {
         }
 
         // Buat objek Nota baru
-        Nota newNota = new Nota(1, "", member, berat, DATE_FORMAT.format(currentDate),
-                sisaHariPengerjaan, harga);
+        Nota newNota = new Nota(notaCounter, paket, member, berat, DATE_FORMAT.format(currentDate), sisaHariPengerjaan,
+                harga);
 
         // Tambahkan objek Nota ke dalam array list notas
         notas.add(newNota);
@@ -264,7 +270,7 @@ public class MainMenu {
         // Tampilkan informasi status nota
         System.out.println("Status : Belum bisa diambil :(");
 
-
+        
 
         // Cek apakah member memenuhi syarat diskon 50%
         if (member.isEligibleForDiscount()) {
@@ -286,10 +292,10 @@ public class MainMenu {
         }
 
         System.out.println("Terdaftar " + notas.size() + " nota dalam sistem.");
-        int i = 0;
+        
         for (Nota nota : notas) {
-            System.out.println("- [" + i + "] Status : " + nota);
-            i++;
+            System.out.println("- [" + nota.getIdNota() + "] Status : " + nota);
+            
         }
     }
 
@@ -355,7 +361,8 @@ public class MainMenu {
 
     /**
      * 
-     * Method untuk menambahkan 1 hari ke current date dan menampilkan informasi terkait nota
+     * Method untuk menambahkan 1 hari ke current date dan menampilkan informasi
+     * terkait nota
      */
     private static void nextDay() {
 
@@ -364,8 +371,7 @@ public class MainMenu {
         for (Nota nota : notas) {
             nota.nextDay();
             if (nota.isReady() == true) {
-                System.out.println(
-                        "Laundry dengan nota ID " + nota.getIdNota() + " sudah dapat diambil!");
+                System.out.println("Laundry dengan nota ID " + nota.getIdNota() + " sudah dapat diambil!");
             }
         }
         System.out.println("Selamat pagi dunia!\nDek Depe: It's CuciCuci Time.");
