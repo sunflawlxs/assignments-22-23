@@ -17,7 +17,7 @@ import java.awt.*;
 
 public class MainFrame extends JFrame{
     private static MainFrame instance;
-    private final Loginable[] loginablePanel;
+    //private final Loginable[] loginablePanel;
     private final MemberSystem memberSystem = new MemberSystem();
     private final EmployeeSystem employeeSystem = new EmployeeSystem();
     private final CardLayout cards = new CardLayout();
@@ -41,13 +41,14 @@ public class MainFrame extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(700, 432);
         setVisible(true);
-        loginablePanel = new Loginable[]{
-                employeeSystemGUI,
-                memberSystemGUI,
-        };
-        initGUI();
-        cards.show(mainPanel, HomeGUI.KEY);
-        add(mainPanel);
+        setLocationRelativeTo(null);
+        // loginablePanel = new Loginable[]{
+        //         employeeSystemGUI,
+        //         memberSystemGUI,
+        // };
+        // initGUI();
+        // cards.show(mainPanel, HomeGUI.KEY);
+        // add(mainPanel);
     }
 
     /**
@@ -97,10 +98,10 @@ public class MainFrame extends JFrame{
      * @return boolean yang menandakan apakah login berhasil atau gagal.
      * */
     public boolean login(String id, String password){
-        for (Loginable panel:
-                loginablePanel) {
+       // for (Loginable panel:
+              //  loginablePanel) {
             // TODO
-        }
+       // }
         return false;
     }
 
@@ -109,10 +110,10 @@ public class MainFrame extends JFrame{
      * Method untuk logout dari sistem, kemudian menampilkan halaman Home.
      * */
     public void logout(){
-        for (Loginable panel:
-                loginablePanel) {
-            panel.logout();
-        }
+        // for (Loginable panel:
+        //         loginablePanel) {
+        //     panel.logout();
+        // }
         navigateTo(HomeGUI.KEY);
     }
 
