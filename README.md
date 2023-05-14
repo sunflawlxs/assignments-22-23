@@ -13,6 +13,8 @@ Semester Genap 2022/2023
 1. Soal Tugas Pemrograman
    * [Tugas Pemrograman 1][tp1]
    * [Tugas Pemrograman 2][tp2]
+   * [Tugas Pemrograman 3][tp3]
+   * [Tugas Pemrograman 4][tp4]
 2. [Latihan Tugas Pemrograman](#latihan-tugas-pemrograman)
 3. [Memulai](#memulai)
 4. [Mengerjakan Tugas Pemrograman](#mengerjakan-tugas-pemrograman)
@@ -100,6 +102,8 @@ yang telah dijelaskan dalam perkuliahan.
 [latihan-tp]: https://github.com/dekdepe/exercise-assignments
 [tp1]: assignment1/README.md
 [tp2]: assignment2/README.md
+[tp3]: assignment3/README.md
+[tp4]: assignment4/README.md
 [repositori-pusat]: https://github.com/dekdepe/assignments-22-23
 
 [repositori-2018]: https://gitlab.com/DDP2-CSUI/assignment
