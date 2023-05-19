@@ -1,5 +1,5 @@
 package assignments.assignment4.gui;
-
+//import package yang dibutuhkan
 import assignments.assignment3.LoginManager;
 import assignments.assignment3.user.Member;
 import assignments.assignment4.MainFrame;
@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class RegisterGUI extends JPanel {
+public class RegisterGUI extends JPanel {//layout register
     public static final String KEY = "REGISTER";
     private JPanel mainPanel;
     private JLabel nameLabel;
@@ -41,7 +41,7 @@ public class RegisterGUI extends JPanel {
      * Be creative and have fun!
      * */
     private void initGUI() {
-        GridBagConstraints constraints = new GridBagConstraints();
+        GridBagConstraints constraints = new GridBagConstraints();//peletakkan tombol2nya 
 
         constraints.gridx = 0;
         constraints.gridy = 0;
@@ -113,7 +113,7 @@ public class RegisterGUI extends JPanel {
     * Method untuk mendaftarkan member pada sistem.
     * Akan dipanggil jika pengguna menekan "registerButton"
     * */
-    private void handleRegister() {
+    private void handleRegister() {//handle error untuk registernya
         String password = new String (passwordField.getPassword());
         if (nameTextField.getText().equals("") || phoneTextField.getText().equals("") ||password.equals("")) {
             JOptionPane.showMessageDialog(this, "Semua field wajib diisi","Info", JOptionPane.INFORMATION_MESSAGE);
@@ -129,15 +129,15 @@ public class RegisterGUI extends JPanel {
             Member registMember =  loginManager.register(nameTextField.getText(), phoneTextField.getText(), password);
     
     
-            if (registMember != null) {
-                JOptionPane.showMessageDialog(this, "berhasil membuat ID"+ registMember.getId(), "Registrasi sukses", JOptionPane.INFORMATION_MESSAGE);
+            if (registMember != null) {//kalo diisi lengkap maka akan sukses
+                JOptionPane.showMessageDialog(this, "berhasil membuat ID" + registMember.getId(), "Registrasi sukses", JOptionPane.INFORMATION_MESSAGE);
                 nameTextField.setText("");
                 phoneTextField.setText("");
                 passwordField.setText("");
                 MainFrame.getInstance().navigateTo(HomeGUI.KEY);
                 // Set text later
                 // Set text later
-            } else {
+            } else {//kalau isi yang sudah ada maka akan error
                 JOptionPane.showMessageDialog(this, "Nama" + nameTextField.getText() + " dan nomor hp " + phoneTextField.getText() + " sudah ada!", "Registrasi gagal", JOptionPane.ERROR_MESSAGE);
                 nameTextField.setText("");
                 phoneTextField.setText("");
@@ -149,7 +149,7 @@ public class RegisterGUI extends JPanel {
         
         
     }
-
+    //fungsi is numeric
     private static boolean isNumeric(String str) {
         for (char c : str.toCharArray()) {
             if (!Character.isDigit(c))

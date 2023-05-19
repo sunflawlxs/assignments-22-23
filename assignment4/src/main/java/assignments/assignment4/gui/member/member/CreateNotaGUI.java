@@ -13,7 +13,7 @@ import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class CreateNotaGUI extends JPanel {
+public class CreateNotaGUI extends JPanel {//untuk tombol2nya
     public static final String KEY = "CREATE_NOTA";
     private JLabel paketLabel;
     private JComboBox<String> paketComboBox;
@@ -28,7 +28,7 @@ public class CreateNotaGUI extends JPanel {
     private final Calendar cal;
     private final MemberSystemGUI memberSystemGUI;
 
-    public CreateNotaGUI(MemberSystemGUI memberSystemGUI) {
+    public CreateNotaGUI(MemberSystemGUI memberSystemGUI) {//untuk tanggal nya
         this.memberSystemGUI = memberSystemGUI;
         this.fmt = NotaManager.fmt;
         this.cal = NotaManager.cal;
@@ -42,7 +42,7 @@ public class CreateNotaGUI extends JPanel {
      * Selama funsionalitas sesuai dengan soal, tidak apa apa tidak 100% sama.
      * Be creative and have fun!
      * */
-    private void initGUI() {
+    private void initGUI() {//setup layout dan peletakkan tombol2nya
         // TODO
         GridBagConstraints constraints = new GridBagConstraints();
 
@@ -134,19 +134,19 @@ public class CreateNotaGUI extends JPanel {
     private void createNota() {
         int berat = 0;
 
-        if (beratTextField.getText().equals("")) {
+        if (beratTextField.getText().equals("")) {//berat harus ada input angka
             JOptionPane.showMessageDialog(null, "Input harus berisi angka", "Error", JOptionPane.ERROR_MESSAGE);
             beratTextField.setText("");
         } else {
             try {
                 berat = Integer.parseInt(beratTextField.getText());
 
-                if (berat < 1) {
+                if (berat < 1) {//kalo negatif
                     JOptionPane.showMessageDialog(null, "Hanya menerima input positif", "Error", JOptionPane.ERROR_MESSAGE);
                     beratTextField.setText("");
                 } else {
 
-                    if (berat == 1){
+                    if (berat == 1){//kalo kurang dari 2 akan dianggap 2
                         JOptionPane.showMessageDialog(null, "Jika berat kurang dari 2kg, maka akan dianggap 2 kg", "Information", JOptionPane.INFORMATION_MESSAGE);
                         berat = 2;
                     }
@@ -166,7 +166,7 @@ public class CreateNotaGUI extends JPanel {
                     if (antarCheckBox.isSelected()) {
                         nota.addService(new AntarService());
                     }
-            
+                    //kalo sudahakan dimasukkan ke nota
                     NotaManager.addNota(nota);
                     Member member = memberSystemGUI.getLoggedInMember();
                     member.addNota(nota);
@@ -174,7 +174,7 @@ public class CreateNotaGUI extends JPanel {
                     JOptionPane.showMessageDialog(this, "Nota berhasil dibuat!");
                 }
                 
-            } catch (Exception e){
+            } catch (Exception e){//kalo input selain angka akan error
                 JOptionPane.showMessageDialog(null, "Input harus berisi angka", "Error", JOptionPane.ERROR_MESSAGE);
             }
 
@@ -194,7 +194,7 @@ public class CreateNotaGUI extends JPanel {
         MainFrame.getInstance().navigateTo(MemberSystemGUI.KEY);
     }
 
-    private void reset() {
+    private void reset() {//reset ke tampilan semula
         paketComboBox.setSelectedItem("Express");
         beratTextField.setText("");
         antarCheckBox.setSelected(false);

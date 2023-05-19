@@ -1,19 +1,16 @@
+//import file tp sebelumnya dan package yang dibutuhkan
 package assignments.assignment4.gui;
-
 import assignments.assignment3.nota.NotaManager;
 import assignments.assignment4.MainFrame;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
-
 import static assignments.assignment3.nota.NotaManager.toNextDay;
 
-public class HomeGUI extends JPanel {
+public class HomeGUI extends JPanel {//untuk label dan tombol
     public static final String KEY = "HOME";
     private JLabel titleLabel;
     private JLabel dateLabel;
@@ -22,7 +19,7 @@ public class HomeGUI extends JPanel {
     private JButton registerButton;
     private JButton toNextDayButton;
 
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");//untuk tanggal skrg
     private static Calendar cal = Calendar.getInstance();
     
     public HomeGUI(){
@@ -42,7 +39,7 @@ public class HomeGUI extends JPanel {
      * Selama funsionalitas sesuai dengan soal, tidak apa apa tidak 100% sama.
      * Be creative and have fun!
      * */
-    private void initGUI() {
+    private void initGUI() {//set up tombol dan peletakan home gui
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0;
         constraints.gridy = 0;

@@ -6,6 +6,8 @@ import assignments.assignment3.user.Member;
 
 import static assignments.assignment3.nota.NotaManager.notaList;
 
+import java.util.Arrays;
+
 public class EmployeeSystem extends SystemCLI {
     public EmployeeSystem() {
         memberList = new Member[]{
@@ -15,7 +17,17 @@ public class EmployeeSystem extends SystemCLI {
                 new Employee("Ivan Hoshimachi", "SuamiSahSuisei"),
         };
     }
-
+    public void addEmployee(Employee[] employees) {
+        Member[] result = new Member[employees.length + memberList.length];
+     
+     
+        System.arraycopy(memberList, 0, result, 0, memberList.length);
+        System.arraycopy(employees, 0, result, memberList.length, employees.length);
+     
+        memberList = result;
+     }
+     
+    
     @Override
     protected boolean processChoice(int choice) {
         boolean logout = false;

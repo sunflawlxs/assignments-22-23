@@ -1,5 +1,5 @@
 package assignments.assignment4.gui.member.member;
-
+//import package
 import assignments.assignment3.nota.Nota;
 import assignments.assignment3.nota.NotaManager;
 import assignments.assignment3.user.Member;
@@ -11,7 +11,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class MemberSystemGUI extends AbstractMemberGUI {
+public class MemberSystemGUI extends AbstractMemberGUI {//untuk member nya
     public static final String KEY = "MEMBER";
 
     public MemberSystemGUI(SystemCLI systemCLI) {
@@ -70,21 +70,21 @@ public class MemberSystemGUI extends AbstractMemberGUI {
 
         try {
             StringBuilder message = new StringBuilder();
-            for (Nota nota : NotaManager.notaList) {
+            for (Nota nota : NotaManager.notaList) {//untuk menambahkan nota nya ke dalam nota yang suda ada di membernya
                 if (loggedInMember.equals(nota.getMember())) {
                     message.append(nota.toString()).append("\n");
                 }
             }
 
             if (message.toString().isEmpty()) {
-                label.setText("You haven't done any laundry at Cucicuci yet. :(");
+                label.setText("You haven't done any laundry at Cucicuci yet. :(");//kalo nota masi kosong
             } else {
                 label.setText(message.toString());
             }
 
-            JOptionPane.showMessageDialog(this, scrollPane, "Nota Details", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, scrollPane, "Nota Details", JOptionPane.INFORMATION_MESSAGE);//untuk menampilkan nota details
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace();//kalo error handle
             JOptionPane.showMessageDialog(this, "Failed to show nota details.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -97,7 +97,6 @@ public class MemberSystemGUI extends AbstractMemberGUI {
      * Akan dipanggil jika pengguna menekan button kedua pada createButtons
      * */
     private void createNota() {
-        // TODO
         MainFrame.getInstance().navigateTo(CreateNotaGUI.KEY);
     }
 

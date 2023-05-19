@@ -3,7 +3,7 @@ package assignments.assignment4.gui.member;
 import assignments.assignment3.user.Member;
 import assignments.assignment3.user.menu.SystemCLI;
 import assignments.assignment4.MainFrame;
-
+//import package
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -88,7 +88,6 @@ public abstract class AbstractMemberGUI extends JPanel implements Loginable{
      * @return true jika ID dan password sesuai dengan instance member, false jika tidak.
      * */
     public boolean login(String id, String password) {
-        // TODO belom
         Member authMember = systemCLI.authUser(id, password);
         if (authMember == null) {
             return false;
