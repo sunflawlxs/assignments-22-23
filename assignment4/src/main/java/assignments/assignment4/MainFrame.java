@@ -17,7 +17,7 @@ import java.awt.*;
 
 public class MainFrame extends JFrame{
     private static MainFrame instance;
-    //private final Loginable[] loginablePanel;
+    private final Loginable[] loginablePanel;
     private final MemberSystem memberSystem = new MemberSystem();
     private final EmployeeSystem employeeSystem = new EmployeeSystem();
     private final CardLayout cards = new CardLayout();
@@ -33,22 +33,22 @@ public class MainFrame extends JFrame{
     private MainFrame(){
         super("CuciCuciSystem");
 //        TODO: uncomment code dibawah ini setelah kamu implmentasikan addEmployee pada EmployeeSystem.
-//        // for context dari 2 employee baru ini : https://ristek.link/karyawan-baru-cucicuci
-//        employeeSystem.addEmployee(new Employee[]{
-//                new Employee("delta Epsilon Huha Huha", "ImplicitDiff"),
-//                new Employee("Regret", "FansBeratKanaArima")
-//        });
+//        for context dari 2 employee baru ini : https://ristek.link/karyawan-baru-cucicuci
+        // employeeSystem.addEmployee(new Employee[]{
+        //         new Employee("delta Epsilon Huha Huha", "ImplicitDiff"),
+        //         new Employee("Regret", "FansBeratKanaArima")
+        // });
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(700, 432);
         setVisible(true);
         setLocationRelativeTo(null);
-        // loginablePanel = new Loginable[]{
-        //         employeeSystemGUI,
-        //         memberSystemGUI,
-        // };
-        // initGUI();
-        // cards.show(mainPanel, HomeGUI.KEY);
-        // add(mainPanel);
+        loginablePanel = new Loginable[]{
+                employeeSystemGUI,
+                memberSystemGUI,
+        };
+        initGUI();
+        cards.show(mainPanel, HomeGUI.KEY);
+        add(mainPanel);
     }
 
     /**
@@ -85,6 +85,7 @@ public class MainFrame extends JFrame{
      * */
     public void navigateTo(String page){
         // TODO
+        cards.show(mainPanel, page);
     }
 
     /**
@@ -98,10 +99,14 @@ public class MainFrame extends JFrame{
      * @return boolean yang menandakan apakah login berhasil atau gagal.
      * */
     public boolean login(String id, String password){
-       // for (Loginable panel:
-              //  loginablePanel) {
-            // TODO
-       // }
+        for (Loginable panel:
+                loginablePanel) {
+            if (panel.login(id, password)) {
+                navigateTo(panel.getPageName());
+                return true;
+            }
+        }
+                
         return false;
     }
 
@@ -110,10 +115,10 @@ public class MainFrame extends JFrame{
      * Method untuk logout dari sistem, kemudian menampilkan halaman Home.
      * */
     public void logout(){
-        // for (Loginable panel:
-        //         loginablePanel) {
-        //     panel.logout();
-        // }
+        for (Loginable panel:
+                loginablePanel) {
+            panel.logout();
+        }
         navigateTo(HomeGUI.KEY);
     }
 

@@ -1,25 +1,25 @@
 package assignments.assignment3.nota.service;
 
 public class CuciService implements LaundryService{
-    private boolean checkDone = false;
+    private boolean isDone = false;
     @Override
     public String doWork() {
-        checkDone =  true;
-        return "Sedang mencuci...";//bila masi dikerjakan akan keluar sedang mencuci
+        isDone = true;
+        return "Sedang mencuci...";
     }
 
     @Override
     public boolean isDone() {
-        return checkDone;
+        return isDone;
     }
 
     @Override
-    public long getHarga(int berat) {//itungan harga beratnya
+    public long getHarga(int berat) {
         return 0;
     }
 
     @Override
     public String getServiceName() {
-        return "Cuci";//return cuci 
+        return "Cuci";
     }
 }

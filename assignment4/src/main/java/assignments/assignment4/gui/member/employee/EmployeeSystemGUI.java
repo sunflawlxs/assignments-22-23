@@ -30,10 +30,12 @@ public class EmployeeSystemGUI extends AbstractMemberGUI {
      * */
     @Override
     protected JButton[] createButtons() {
-        // TODO
         return new JButton[]{
+            new JButton("It's nyuci time"),
+            new JButton("Display List Nota"),
         };
-    }
+    };
+    
 
     /**
      * Method ini mensupply ActionListener korespondensi dengan button yang dibuat createButtons()
@@ -54,7 +56,18 @@ public class EmployeeSystemGUI extends AbstractMemberGUI {
      * Akan dipanggil jika pengguna menekan button pertama pada createButtons
      * */
     private void displayNota() {
-        // TODO
+        String containerStatus = "";
+        if (NotaManager.notaList.length != 0) {
+            for (Nota nota : NotaManager.notaList) {
+                containerStatus += (nota.getNotaStatus()) + ("\n");
+                
+            }
+            JOptionPane.showMessageDialog(this, containerStatus.toString(), "List Nota", JOptionPane.INFORMATION_MESSAGE);
+            
+        }else {
+        JOptionPane.showMessageDialog(this, "Belum ada nota", "List Nota", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }
 
     /**
@@ -62,6 +75,22 @@ public class EmployeeSystemGUI extends AbstractMemberGUI {
      * Akan dipanggil jika pengguna menekan button kedua pada createButtons
      * */
     private void cuci() {
-        // TODO
+        JOptionPane.showMessageDialog(this, "Stand back! " + loggedInMember.getNama() + " beginning to nyuci!", "Nyuci Time", JOptionPane.INFORMATION_MESSAGE);
+    
+        switch (NotaManager.notaList.length) {
+            case 0:
+                JOptionPane.showMessageDialog(this, "Nothing to cuci here", "Nyuci Results", JOptionPane.ERROR_MESSAGE);
+                break;
+            default:
+                StringBuilder containerNota = new StringBuilder();
+                for (Nota nota : NotaManager.notaList) {
+                    containerNota.append(nota.kerjakan()).append("\n");
+                }
+    
+                JOptionPane.showMessageDialog(this, containerNota.toString(), "Nyuci Results", JOptionPane.INFORMATION_MESSAGE);
+                break;
+        }
+        
+        
     }
 }
